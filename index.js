@@ -15,7 +15,7 @@ const connection = mysql.createConnection({
   password: 'cbasbot2020.',
   database: 'cbasbot_cbasbotdb'
   /*
-  
+  //comentario
 });
 /*
 const connection = mysql.createConnection({
