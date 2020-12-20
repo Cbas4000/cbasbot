@@ -75,13 +75,13 @@ client.on("message",  async message => {
   
     //D.va------------------------------------------------------------------------------------------------
   
-  if (message.content.startsWith(mentions.has("@550630022411452427"))) {
+  if (message.content.startsWith(message.mentions.has("@550630022411452427"))) {
   } else {
     if (
       (message.content.includes("puto") &&
-      mentions.has("550630022411452427")) ||
+      message.mentions.has("550630022411452427")) ||
       (message.content.includes("Puto") &&
-      mentions.has("550630022411452427"))
+      message.mentions.has("550630022411452427"))
     ) {
       message.channel.send("puta tu vieja! " + message.author);
     }
