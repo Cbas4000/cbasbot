@@ -24,7 +24,7 @@ const connection = mysql.createConnection({
   
   
 });*/
-
+//token con heroku
 client.login(process.env.TOKEN);
 //se usa el evento ready para iniciar el bot
 client.on("ready", () => {
