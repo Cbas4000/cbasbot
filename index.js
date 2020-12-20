@@ -83,7 +83,7 @@ client.on("message",  async message => {
       (message.content.includes("Puto") &&
       message.mentions.has("550630022411452427"))
     ) {
-      message.channel.send(`puta tu vieja! <@${message.author}>`);
+      message.channel.send(`puta tu vieja! ${message.author}`);
     }
   }
   if (
