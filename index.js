@@ -113,7 +113,7 @@ client.on("message",  async message => {
   }
 
   if (message.content === "fap") {
-    const fap = client.emojis.find(emoji => emoji.name === "fap");
+    const fap = message.guild.emojis.cache.find(emoji => emoji.name === "fap");
     message.delete();
     message.channel.send("" + fap);
   } 
@@ -155,7 +155,7 @@ client.on("message",  async message => {
     
    let emojiname = args.slice(1).join(""); 
    
-   let emojisearch = client.emojis.find(emoji => emoji.name === emojiname)
+   let emojisearch = message.guild.emojis.cache.find(emoji => emoji.name === emojiname)
     
    if(emojisearch != null){
       
@@ -234,7 +234,7 @@ connection.query('SELECT name FROM emojis', (err, result) =>{
     .setThumbnail(client.server_icon)
     emoalldividido.forEach(entry =>{
       
-      let emolistgif = client.emojis.find(emoji =>emoji.name === entry)
+      let emolistgif = message.guild.emojis.cache.find(emoji =>emoji.name === entry)
       emolistembed.addField(entry,''+ emolistgif)    
       })
       
@@ -247,8 +247,8 @@ connection.query('SELECT name FROM emojis', (err, result) =>{
   } 
 //emotes gif-----------------------------------------------------------------------------------------
   if(message.content === 'boobs'){
-    const boob1 = client.emojis.find(emoji =>emoji.name == 'boob1')
-    const boob2 = client.emojis.find(emoji =>emoji.name == 'boob2')
+    const boob1 = message.guild.emojis.cache.find(emoji =>emoji.name == 'boob1')
+    const boob2 = message.guild.emojis.cache.find(emoji =>emoji.name == 'boob2')
     message.channel.send('' + boob1 + boob2)
   }
   
@@ -324,7 +324,7 @@ function emotehook(emoteid) {
   if(message.channel.id === '717598614209429535') {webhookid = '717759855645163603'; webhooktoken = 'oci0n3xs-9mWPScfw_F1r7VxmZHgb58xu7f1RtrqbOqLt3iHeUnn2r60NDg613SXIOSN'}          
 
 const webhookClient = new discord.WebhookClient(webhookid, webhooktoken);
-const emotegif = client.emojis.find(emoji => emoji.name == message.content);
+const emotegif = message.guild.emojis.cache.find(emoji => emoji.name == message.content);
  
    message.delete();
    const avatarauthor = message.author.avatarURL
