@@ -24,7 +24,7 @@ const connection = mysql.createConnection({
   
 });*/
 
-client.login('NTUwNjMwMDIyNDExNDUyNDI3.Xuf9AQ.YiHWLb6RyaE8jHaMcybJ1bpL_UA');
+client.login(token);
 //se usa el evento ready para iniciar el bot
 client.on("ready", () => {
   console.log("tamo redy dijo el" + client.user.tag);
