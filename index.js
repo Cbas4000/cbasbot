@@ -2,7 +2,7 @@
 //empanadas con arroz
 
 const discord = require("discord.js");
-const {Attachment} = require("discord.js");
+const {MessageAttachment} = require("discord.js");
 require ('dotenv').config();
   const client = new discord.Client();
 // const db = require('quick.db')
@@ -55,7 +55,7 @@ client.on("message",  async message => {
 
   
   //D.va------------------------------------------------------------------------------------------------
-  var dvaimg = new Attachment('https://cdn.discordapp.com/attachments/528402283483103247/549435432249720844/33bea360-219e-4ab1-804a-86b792985fc8.jpg')
+  var dvaimg = new MessageAttachment('https://cdn.discordapp.com/attachments/528402283483103247/549435432249720844/33bea360-219e-4ab1-804a-86b792985fc8.jpg')
   if (message.content.includes("dva")) {
     message.channel.send(dvaimg)
       
