@@ -1,3 +1,6 @@
+
+//este comentario es para explicar la wea
+
 const discord = require("discord.js");
 const {Attachment} = require("discord.js");
 require ('dotenv').config();
