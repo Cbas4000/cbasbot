@@ -1,5 +1,5 @@
 
-//este comentario es para explicar la wea
+//empanadas con arroz
 
 const discord = require("discord.js");
 const {Attachment} = require("discord.js");
