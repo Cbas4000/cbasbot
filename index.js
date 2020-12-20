@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
   password: 'cbasbot2020.',
   database: 'cbasbot_cbasbotdb'
   /*
-  //comentario
+  //watako es puto
 });
 /*
 const connection = mysql.createConnection({
