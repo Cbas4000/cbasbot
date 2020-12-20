@@ -115,7 +115,7 @@ client.on("message",  async message => {
   if (message.content === "fap") {
     const fap = message.guild.emojis.cache.find(emoji => emoji.name === "fap");
     message.delete();
-    message.channel.send("" + fap);
+    message.channel.send("" + `${fap}`);
   } 
 
   if (message.author.id === "399620656452337665") {
