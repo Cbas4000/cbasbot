@@ -1,6 +1,7 @@
 const discord = require("discord.js");
 const {Attachment} = require("discord.js");
-const client = new discord.Client();
+require ('dotenv').config();
+  const client = new discord.Client();
 // const db = require('quick.db')
 const mysql = require('mysql2');
 let prefix = "!";
@@ -24,7 +25,7 @@ const connection = mysql.createConnection({
   
 });*/
 
-client.login(token);
+client.login(process.env.TOKEN);
 //se usa el evento ready para iniciar el bot
 client.on("ready", () => {
   console.log("tamo redy dijo el" + client.user.tag);
