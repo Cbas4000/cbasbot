@@ -1,6 +1,3 @@
-
-//empanadas con arroz
-
 const discord = require("discord.js");
 const {MessageAttachment} = require("discord.js");
 require ('dotenv').config();
@@ -8,25 +5,16 @@ require ('dotenv').config();
 // const db = require('quick.db')
 const mysql = require('mysql2');
 let prefix = "!";
-/*
+
 const connection = mysql.createConnection({
-  host: 'localhost',//'cbasdb.heliohost.org',
-  user: 'cbasbot_cbas',
+  host: 'cbasbot3.heliohost.us',
+  user: 'cbasbot3_cbas',
   password: 'cbasbot2020.',
-  database: 'cbasbot_cbasbotdb'
-  /*
+  database: 'cbasbot3_cbasbot'
+  
   //watako es puto
 });
-/*
-const connection = mysql.createConnection({
-  host: 'ec2-34-197-141-7.compute-1.amazonaws.com',
-  port: '5432',
-  user: 'rzsaojsgkpivbn',
-  password: 'bbea1a16cc9e9ad563453e7d135546de0b4965af3d030579b0346e0bc0ba2ae7',
-  database: 'nd9f5c7rgckohl8'
   
-  
-});*/
 //token con heroku
 client.login(process.env.TOKEN);
 //se usa el evento ready para iniciar el bot
@@ -146,7 +134,7 @@ client.on("message",  async message => {
 
   if(message.content.startsWith(prefix + 'updateemolist')) {
    message.channel.send('la base de datos se ha actualizado.....joto')
-  //connection.query(`CREATE TABLE emojis (name varchar(255) )`)
+   //connection.query(`CREATE TABLE emojis (name varchar(255) )`)
    }
 
 // para añadir emotes gifs---------------------------------------------------------------------------
@@ -169,7 +157,7 @@ client.on("message",  async message => {
 
          //connection.query(`CREATE TABLE ${textsend} (name varchar(255) )`)
          //connection.query(`INSERT INTO ${textsend} VALUES ('${textsend}') `)
-         connection.query(`INSERT INTO emojis VALUES ('${emojiname}') `)
+         connection.query(`INSERT INTO emojis VALUES ('${emojiname}')`)
          message.channel.send("se ha agregado correctamente el emoji!") 
 
          }
@@ -181,10 +169,10 @@ client.on("message",  async message => {
 }
 // para añadir emotes gifs---------------------------------------------------------------------------  
 // para enviar los emote gifs------------------------------------------------------------------------
-/*
+
 connection.query('SELECT name FROM emojis', (err, result) =>{
 
-  if(!connection.query('SELECT*FROM')){ message.channel.sendU("OMG OMG BRO OMG WTF BRO no me puedo conectar")}
+  if(!connection.query('SELECT*FROM emojis')){ message.channel.send("OMG OMG BRO OMG WTF BRO no me puedo conectar")}
 
   else{
   if (result && result[0].name) { 
@@ -202,20 +190,25 @@ connection.query('SELECT name FROM emojis', (err, result) =>{
 
         const textsend = message.content 
         emotehook(textsend)
- /*       
+
+ /*  COLOCAR EL EMOJI USANDO METODO SQLQUERY----------------------------------------------------->
+
         var emomessage = `SELECT name FROM ${textsend}`
         var emobusar = connection.query(emomessage, (err, result) => {
   
             
             emotehook(textsend)
-         }) 
+
+      COLOCAR EL EMOJI USANDO METODO SQLQUERY----------------------------------------------------->
+         }) */ 
+
     }
       
   });
   
 }
 })
-*/
+
 //comando para mostrar todos los emote gif disponibles, y su uso------------------------------------------
   
   if(message.content.startsWith(prefix + 'emotelist')){
@@ -228,7 +221,7 @@ connection.query('SELECT name FROM emojis', (err, result) =>{
   
                                     
     const emolistembed = new discord.RichEmbed()
-     .setColor('#7052f7')
+    .setColor('#7052f7')
     .setTitle('Emojis')
     .setDescription('Aquí encontraras todos los emojis que actualmente estan disponibles para uso!')
     .setThumbnail(client.server_icon)
@@ -327,14 +320,32 @@ const webhookClient = new discord.WebhookClient(webhookid, webhooktoken);
 const emotegif = message.guild.emojis.cache.find(emoji => emoji.name == message.content);
  
    message.delete();
-   const avatarauthor = message.author.avatarURL
+   const avatarauthor = message.author.avatarURL()
    const usernameauthor = message.author.username
 
-webhookClient.send(''+ emotegif, {
+webhookClient.send(`${emotegif}`, {
 	username: usernameauthor,
 	avatarURL: avatarauthor,
 	});
 }
   //Weebhook--------------------------------------------------------------------  
+  mention = message.mentions.users.first();
 
-}); 
+  const userid = args[1] + ""
+  const useridsolo = userid.split("<@!") + "";
+  const useridsolo2 = useridsolo.split(">");
+  useridget = useridsolo2[0].split(",")
+  const HugEmbed = new discord.MessageEmbed()
+  .setTitle(`a ${useridget.username} le gusta la pija`)
+  .setColor('#000000')
+  .setImage('https://cdn.discordapp.com/attachments/704062006139027576/790324382358175794/tenor.gif')
+  .setTimestamp()
+
+  if (message.content.startsWith("hugembed") && mention == null){
+    message.reply("please tag a friendo")
+  } else if (message.content.startsWith("hugembed")){
+    message.channel.send(HugEmbed);
+    message.channel.send("" +useridget)
+  }
+
+});   
