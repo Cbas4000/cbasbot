@@ -103,7 +103,7 @@ client.on("message",  async message => {
   if (message.content === "fap") {
     const fap = message.guild.emojis.cache.find(emoji => emoji.name === "fap");
     message.delete();
-    message.channel.send("" + fap);
+    message.channel.send("" + `${fap}`);
   } 
 
   if (message.author.id === "399620656452337665") {
@@ -242,7 +242,7 @@ connection.query('SELECT name FROM emojis', (err, result) =>{
   if(message.content === 'boobs'){
     const boob1 = message.guild.emojis.cache.find(emoji =>emoji.name == 'boob1')
     const boob2 = message.guild.emojis.cache.find(emoji =>emoji.name == 'boob2')
-    message.channel.send('' + boob1 + boob2)
+    message.channel.send('' + `${boob1}` + `${boob2}`)
   }
   
   if (message.content.startsWith("mmr")) {
